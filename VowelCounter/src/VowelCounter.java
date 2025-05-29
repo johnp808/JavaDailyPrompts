@@ -3,9 +3,8 @@ import java.util.Scanner;
 public class VowelCounter {
 
 	private Scanner sc = new Scanner(System.in);
-	private String userChoice, userSentence = "";
+	private String userChoice = "", userSentence = "";
 	private int vowelCounter, a, e, i, o, u = 0;
-	private boolean running = true;
 	
 	public static void main(String[] args) {
 		VowelCounter vC = new VowelCounter();
@@ -13,16 +12,13 @@ public class VowelCounter {
 	}
 	
 	public void run() {
-		// take in user input for a sentence
-		System.out.println("Please Enter A Sentence\nI Will Then Count The Vowels In It!");
-		//ignore case
-//		do {
-			userSentence = "Hello buddy"; // 3 vowels in example
-	//		userSentence = sc.nextLine();
+		System.out.println("Please Enter A Sentence\nI Will Then Count The Vowels In It!\n");
+		
+		do {
+			userSentence = sc.nextLine();
 			char[] userSentenceArray = userSentence.toLowerCase().toCharArray();
-			// count the amount of vowels in the sentence
-			for(int i = 0; i < userSentenceArray.length -1; i++) {
-				char letter = userSentenceArray[i];
+			for(int j = 0; j < userSentenceArray.length; j++) {
+				char letter = userSentenceArray[j];
 				
 				if(letter == 'a') {
 					vowelCounter++;
@@ -44,14 +40,39 @@ public class VowelCounter {
 					vowelCounter++;
 					u++;
 				}
-	//			System.out.print(letter + ", ");
-	//			System.out.println();
 			}
-			//display the total vowel count at the end		
-			System.out.println("There Are " + vowelCounter + " Vowels In " + userSentence + "!");
-			System.out.println("There Are " + a + " 'A's, " + e + " 'E's, " + i + " 'I's, " 
-					 			+ o + " 'O's, " + u + " 'U's, " + "In " + userSentence + "!");
-//			running = false;
-//		} while(true);
+			
+			System.out.println("There Are " + vowelCounter + " Vowels In " + userSentence + "!\n");
+			System.out.print("Vowels In " + userSentence + ":\n");
+			if(a > 0) System.out.print(a + " 'A'" + (a == 1 ? "" : "s") + ", ");
+			if(e > 0) System.out.print(e + " 'E'" + (e == 1 ? "" : "s") + ", ");
+			if(i > 0) System.out.print(i + " 'I'" + (i == 1 ? "" : "s") + ", ");
+			if(o > 0) System.out.print(o + " 'O'" + (o == 1 ? "" : "s") + ", ");
+			if(u > 0) System.out.print(u + " 'U'" + (u == 1 ? "" : "s"));
+			System.out.println("\n");
+			
+			while(!userChoice.equals("1") && !userChoice.equals("2")) {
+				System.out.println("Would you like to try another Sentence?\n1) Yes\n2) No\n");
+				userChoice = sc.nextLine();
+				
+				if (userChoice.equals("1")) {
+					System.out.println("Enter Another Sentence:");
+					vowelCounter = 0;
+					a = 0;
+					e = 0;
+					i = 0;
+					o = 0;
+					u = 0;
+				}
+				else if (userChoice.equals("2")) {
+					System.out.println("Thanks For Playing!\n\nGoodbye!");
+				}
+				else {
+					System.out.println("Please Enter A Valid Option...\n");
+				}
+			}
+			
+			userChoice = "";
+		} while(true);
 	}
 }
