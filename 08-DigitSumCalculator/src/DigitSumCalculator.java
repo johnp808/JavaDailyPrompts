@@ -14,14 +14,30 @@ public class DigitSumCalculator {
 	}
 	
 	public void run() {
-		System.out.print("Lets Calculate The Sum Of All The Digits From A Number You Enter!\n\nEnter A Whole Number: ");
+		System.out.print("Lets Calculate The Sum Of All The Digits From A Number You Enter!\n\nEnter A Positive Whole Number: ");
 		do {
-		userNum = getNumber();
-		numStr = String.valueOf(userNum);
-		System.out.println("The sum of the digits in " + userNum + " is " + calculate());
-		System.out.println(equation + sum);
-		System.out.println();
-		} while(!userInput.equals("1") && !userInput.equals("2"));
+			userNum = getNumber();
+			numStr = String.valueOf(userNum);
+			System.out.println("\nThe sum of the digits in " + userNum + " is " + calculate());
+			System.out.println(equation + sum + "\n");
+			do {
+				System.out.println("Would You Like To Try A Different Number?\n1) Yes\n2) No\n");
+				userInput = scanner.nextLine();
+				if(userInput.equals("1")) {
+					System.out.print("Enter A New Positive Whole Number: ");
+					running = true;
+					equation = "";
+					sum = 0;
+				}
+				else if(userInput.equals("2")) {
+					System.exit(0);
+				}
+				else {
+					System.out.println("Please Enter A Valid Option...\n");
+				}
+				
+			} while(!userInput.equals("1") && !userInput.equals("2"));
+		}while(userInput.equals("1"));
 	}
 	public int calculate() {
 		
@@ -35,7 +51,6 @@ public class DigitSumCalculator {
 	}
 	
 	public int getNumber() {
-		
 		while(running) {
 			try {
 				userNum = scanner.nextInt();
