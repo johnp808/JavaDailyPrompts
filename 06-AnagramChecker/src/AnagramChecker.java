@@ -27,9 +27,7 @@ public class AnagramChecker {
 			char[] input2Letters = input2.toCharArray();
 			
 			for(int i = 0; i < input1Letters.length - 1; i++) {
-				
 				for(int j = 0; j < input1Letters.length - 1 -i; j++) {
-	
 					if(input1Letters[j] > input1Letters[j + 1]) {
 						char tempLetter = input1Letters[j];
 						input1Letters[j] = input1Letters[j + 1];
@@ -39,9 +37,7 @@ public class AnagramChecker {
 			}
 			
 			for(int i = 0; i < input2Letters.length - 1; i++) {
-					
 					for(int j = 0; j < input2Letters.length - 1 -i; j++) {
-		
 						if(input2Letters[j] > input2Letters[j + 1]) {
 							char tempLetter = input2Letters[j];
 							input2Letters[j] = input2Letters[j + 1];
