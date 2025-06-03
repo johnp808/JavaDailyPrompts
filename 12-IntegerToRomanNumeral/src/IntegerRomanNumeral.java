@@ -15,7 +15,16 @@ public class IntegerRomanNumeral {
 		// take in user entry
 		// 1000 = M 500 = D 100 = C 50 = L 10 = X 5 = V 1 = I
 		// IV = 4 (not IIII) IX = 9 (not VIIII) XL = 40 XC = 90 CD = 400 CM = 900
-
+		input = 3;
+		counter = input;
+		for(int i = 0; i < input; i++) {
+			if(input < 5) {
+				romNum += "I";
+				counter--;
+			}
+		}
+		
+		System.out.println(romNum);
 		
 	}
 }
