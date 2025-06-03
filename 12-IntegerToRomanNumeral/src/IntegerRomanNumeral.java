@@ -12,16 +12,33 @@ public class IntegerRomanNumeral {
 	}
 	
 	public void run() {
-		// take in user entry
 		// 1000 = M 500 = D 100 = C 50 = L 10 = X 5 = V 1 = I
 		// IV = 4 (not IIII) IX = 9 (not VIIII) XL = 40 XC = 90 CD = 400 CM = 900
-		input = 3;
+		input = 20;
 		counter = input;
-		for(int i = 0; i < input; i++) {
-			if(input < 5) {
+		while(counter > 0) {
+			
+			if(counter >= 10 && counter < 40) {
+				romNum += "X";
+				counter -= 10;
+			}
+			else if(counter >= 9 && counter < 10) {
+				romNum += "IX";
+				counter -= 9;
+			}
+			else if(counter >=5 && counter < 10) {
+				romNum += "V";
+				counter -= 5;
+			}
+			else if(counter == 4) {
+				romNum += "IV";
+				counter -= 4;
+			}
+			else if (counter <= 3) {
 				romNum += "I";
 				counter--;
 			}
+			System.out.println(counter);
 		}
 		
 		System.out.println(romNum);
