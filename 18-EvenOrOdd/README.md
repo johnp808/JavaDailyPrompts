@@ -1,6 +1,6 @@
 # Even Or Odd
 
-### 6-9-25
+### 6-8-25
 
 ## Goal: Practice working with loops, conditionals, and input validation. Reinforce understanding of parity (even/odd) and number sign (positive/negative), while maintaining program state across multiple user runs.
 
