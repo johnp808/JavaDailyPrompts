@@ -74,7 +74,7 @@ public class RemoveDupFromSentence {
 		while(true) {
 			userInput = sc.nextLine();
 			if (userInput.equals("1")) {
-//				reset();
+				reset();
 				return true;
 			}
 			else if (userInput.equals("2")) {
@@ -85,5 +85,11 @@ public class RemoveDupFromSentence {
 				System.out.println("Please Enter A Valid Option...");
 			}
 		}
+	}
+	
+	public void reset() {
+		uniqueWords.clear();
+		sentence = "";
+		word = "";
 	}
 }
