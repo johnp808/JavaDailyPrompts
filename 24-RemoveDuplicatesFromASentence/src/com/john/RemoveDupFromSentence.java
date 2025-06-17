@@ -23,11 +23,20 @@ public class RemoveDupFromSentence {
 	}
 	
 	public void userInput() {
-		
+		System.out.println("Please Enter A Sentence And I Will Remove Any Duplicates From It!");
+		while(true) {
+			sentence = sc.nextLine().toLowerCase().trim();
+			if(sentence.isBlank()) {
+				System.out.println("Please Enter At Least One Word...");
+				continue;
+			}
+			else {
+				break;
+			}
+		}
 	}
 	
 	public void removeDups() {
-		sentence = "The cat chased the cat up the tree.".toLowerCase().trim();
 		
 		for(int i = 0; i < sentence.length(); i++) {
 			char letter = sentence.charAt(i);
@@ -47,12 +56,16 @@ public class RemoveDupFromSentence {
 	}
 	
 	public void printUniqueWords() {
-		System.out.println("Original Sentence: " + sentence);
+		System.out.println("Original Sentence: " + sentence + "\n");
 		System.out.print("Unique Words: ");
 		Iterator<String> it = uniqueWords.iterator();
 		while(it.hasNext()) {
 			String uniqueWord = it.next();
 			System.out.print(uniqueWord + (it.hasNext() ? ", " : " "));
 		}
+	}
+	
+	public boolean runAgain() {
+		return true;
 	}
 }
