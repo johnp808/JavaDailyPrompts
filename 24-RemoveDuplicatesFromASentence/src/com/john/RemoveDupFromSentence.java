@@ -17,9 +17,11 @@ public class RemoveDupFromSentence {
 	}
 	
 	public void run() {
-		userInput();
-		removeDups();
-		printUniqueWords();
+		do {
+			userInput();
+			removeDups();
+			printUniqueWords();
+		} while(runAgain());
 	}
 	
 	public void userInput() {
@@ -63,9 +65,25 @@ public class RemoveDupFromSentence {
 			String uniqueWord = it.next();
 			System.out.print(uniqueWord + (it.hasNext() ? ", " : " "));
 		}
+		System.out.println();
+		System.out.println();
 	}
 	
 	public boolean runAgain() {
-		return true;
+		System.out.println("Would You Like To Enter Another Sentence?\n1) Yes\n2) No");
+		while(true) {
+			userInput = sc.nextLine();
+			if (userInput.equals("1")) {
+//				reset();
+				return true;
+			}
+			else if (userInput.equals("2")) {
+				System.out.println("See Ya Later!");
+				return false;
+			}
+			else {
+				System.out.println("Please Enter A Valid Option...");
+			}
+		}
 	}
 }
