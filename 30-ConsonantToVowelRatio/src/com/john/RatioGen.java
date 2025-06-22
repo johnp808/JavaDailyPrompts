@@ -25,7 +25,7 @@ public class RatioGen {
 	
 	public void userInput() {
 		while(true) {
-			sentence = sc.nextLine();
+			sentence = sc.nextLine().toLowerCase();
 			if (sentence.isBlank()) {
 				System.out.println("Please Enter At Least One Word...");
 				continue;
