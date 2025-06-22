@@ -68,7 +68,7 @@ public class WordLengthClassifier {
 	}
 	
 	public void printResults() {
-		if (shortWords != null && shortWords.size() > 0) {
+		if (!shortWords.isEmpty()) {
 			counter = 0;
 			System.out.print("Short Words (" + shortWords.size() + "): ");
 			for (String shortWord : shortWords) {
@@ -76,7 +76,7 @@ public class WordLengthClassifier {
 				counter++;
 			}
 		}
-		if (mediumWords != null && mediumWords.size() > 0) {
+		if (!mediumWords.isEmpty()) {
 			counter = 0;
 			System.out.print("Medium Words (" + mediumWords.size() + "): ");
 			for (String mediumWord : mediumWords) {
@@ -84,7 +84,7 @@ public class WordLengthClassifier {
 				counter++;
 			}
 		}
-		if (longWords != null && longWords.size() > 0) {
+		if (!longWords.isEmpty()) {
 			counter = 0;
 			System.out.print("Long Words (" + longWords.size() + "): ");
 			for (String longWord : longWords) {
