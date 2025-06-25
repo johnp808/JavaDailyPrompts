@@ -10,7 +10,6 @@
 
 ### A sentence containing letters, spaces, and possibly symbols (you should ignore anything that's not a letter).
 ### Treat letters as case-insensitive.
-### Treat letters as case-insensitive.
 ### Avoid dividing by zero (handle input with no vowels gracefully).
 
 ## Example:
