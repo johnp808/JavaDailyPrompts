@@ -27,7 +27,18 @@ public class LargestVowelCount {
 	}
 	
 	public void userInput() {
-		sentence = sc.nextLine();
+		while (true) {
+			sentence = sc.nextLine();
+			if (sentence.matches("^[\\d\\W_]+$")) {
+				System.out.println("Please Input Letters...");
+			}
+			else if (sentence.isBlank()) {
+				System.out.println("Please Input At Least One Letter...");
+			}
+			else {
+				break;
+			}
+		}
 	}
 	
 	public void countVowels() {
@@ -64,17 +75,35 @@ public class LargestVowelCount {
 				if (entry.getValue() == vowelCount) {
 					vowel = entry.getKey();
 					commaCount++;
-					System.out.print(vowel + (commaCount < largestVowels ? ", " : "\n"));
+					System.out.print(vowel + (commaCount < largestVowels ? ", " : "\nFrequency: " + vowelCount + "\n\n"));
 				}
 			}
 		}
 	}
 	
 	public boolean runAgain() {
-		return false;
+		System.out.println("Would You Like To Run The Program Again? \n1) Yes \n2) No");
+		while (true) {
+			input = sc.nextLine();
+			if (input.equals("1")) {
+				System.out.println("Input Another Entry: ");
+				reset();
+				return true;
+			}
+			else if (input.equals("2")) {
+				System.out.println("Goodbye!");
+				return false;
+			}
+			else {
+				System.out.println("Please Use A Valid Option...");
+			}
+		}
 	}
 	
 	public void reset() {
-		
+		vowelsMap.clear();
+		vowelCount = 0;
+		largestVowels = 0;
+		sentence = "";
 	}
 }
