@@ -7,8 +7,9 @@ import java.util.Set;
 public class SpecialCharExtractor {
 
 	private Scanner sc = new Scanner(System.in);
-	private String sentence = "";
+	private String sentence = "", userInput = "";
 	private Set<Character> uniqueChars = new LinkedHashSet<>();
+	private int counter = 0;
 	
 	public static void main(String[] args) {
 		SpecialCharExtractor sCE = new SpecialCharExtractor();
@@ -16,6 +17,7 @@ public class SpecialCharExtractor {
 	}
 	
 	public void run() {
+		System.out.println("Please Enter A Sentence And I Will Output The Special Characters Found Within.");
 		do {
 			userInput();
 			checkSpecialChars();
@@ -24,7 +26,7 @@ public class SpecialCharExtractor {
 	}
 	
 	public void userInput() {
-		sentence = "Coding";
+		sentence = sc.nextLine();
 	}
 	
 	public void checkSpecialChars() {
@@ -37,7 +39,6 @@ public class SpecialCharExtractor {
 	}
 	
 	public void printAnswer() {
-		 int counter = 0;
 		System.out.println("Input: " + sentence);
 		System.out.print("Output: ");
 		if (!uniqueChars.isEmpty()) {
@@ -53,11 +54,29 @@ public class SpecialCharExtractor {
 	}
 	
 	public boolean runAgain() {
-		return false;
+		System.out.println("Would You Like To Run The Program Again? \n1) Yes \n2) No");
+		while (true) {
+			userInput = sc.nextLine();
+			if (userInput.equals("1")) {
+				System.out.println("Please Enter Another Sentence: ");
+				reset();
+				return true;
+			}
+			else if (userInput.equals("2")) {
+				System.out.println("Goodbye!");
+				return false;
+			}
+			else {
+				System.out.println("Please Enter A Valid Option...");
+			}
+		}
 	}
 	
 	public void reset() {
-		
+		uniqueChars.clear();
+		sentence = "";
+		userInput = "";
+		counter = 0;
 	}
 	
 }
