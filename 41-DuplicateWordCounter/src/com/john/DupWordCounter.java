@@ -9,7 +9,7 @@ public class DupWordCounter {
 	private Scanner sc = new Scanner(System.in);
 	private String sentence = "", userInput = "", word = "", duplicateWord = "";
 	private Map<String, Integer> wordsMap = new LinkedHashMap<>();
-	private int counter = 0, dupCount = 0;
+	private int dupCount = 0;
 	
 	public static void main(String[] args) {
 		DupWordCounter dWC = new DupWordCounter();
@@ -17,6 +17,7 @@ public class DupWordCounter {
 	}
 	
 	public void run() {
+		System.out.println("Enter A Sentence To Find All Duplicate Words And Frequency Used: ");
 		do {
 			userInput();
 			findDups();
@@ -26,7 +27,7 @@ public class DupWordCounter {
 	}
 	
 	public void userInput() {
-		sentence = "The cat chased the mouse but the cat ran fast.";
+		sentence = sc.nextLine();
 	}
 	
 	public void findDups() {
@@ -67,10 +68,29 @@ public class DupWordCounter {
 	}
 	
 	public boolean runAgain() {
-		return false;
+		System.out.println("\nWould You Like To Run The Program Again? \n1) Yes \n2) No");
+		while (true) {
+			userInput = sc.nextLine();
+			if (userInput.equals("1")) {
+				System.out.println("Enter Your Next Sentence: ");
+				reset();
+				return true;
+				
+			}
+			else if (userInput.equals("2")) {
+				System.out.println("GoodBye");
+				return false;
+				
+			}
+			else {
+				System.out.println("Please Enter A Valid Option...");
+				
+			}
+		}
 	}
 	
 	public void reset() {
+		wordsMap.clear();
 		
 	}
 }
