@@ -58,11 +58,16 @@ public class DupWordCounter {
 	
 	public void printAnswers() {
 		System.out.println("Total Repeated Words: " + dupCount);
-		for (Map.Entry<String, Integer> entry : wordsMap.entrySet()) {
-			if (entry.getValue() > 1) {
-				duplicateWord = entry.getKey();
-				dupCount = entry.getValue();
-				System.out.println(duplicateWord + ": " + dupCount);
+		if (dupCount == 0) {
+			System.out.println("No Duplicate Words Found!");
+		}
+		else {
+			for (Map.Entry<String, Integer> entry : wordsMap.entrySet()) {
+				if (entry.getValue() > 1) {
+					duplicateWord = entry.getKey();
+					dupCount = entry.getValue();
+					System.out.println(duplicateWord + ": " + dupCount);
+				}
 			}
 		}
 	}
