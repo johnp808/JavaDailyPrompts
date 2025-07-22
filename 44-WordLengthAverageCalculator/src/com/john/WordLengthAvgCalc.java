@@ -24,7 +24,7 @@ public class WordLengthAvgCalc {
 	}
 	
 	public void userInput() {
-		sentence = "The quick brown fox jumps over the lazy dog.".toLowerCase();
+		sentence = "48394 437346 20347".toLowerCase();
 	}
 	
 	public void count() {
@@ -50,7 +50,12 @@ public class WordLengthAvgCalc {
 	}
 	
 	public void printAnswer() {
-		
+		if(average != 0) {
+			System.out.printf("Average Word Length: %.2f", average);
+		}
+		else {
+			System.out.println("No Valid Words Found...");
+		}
 	}
 	
 	public boolean runAgain() {
