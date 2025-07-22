@@ -15,6 +15,7 @@ public class WordLengthAvgCalc {
 	}
 	
 	public void run() {
+		System.out.println("Enter A Sentence And I Will Find The Average Between Of The Letters And Words");
 		do {
 			userInput();
 			count();
@@ -24,7 +25,7 @@ public class WordLengthAvgCalc {
 	}
 	
 	public void userInput() {
-		sentence = "48394 437346 20347".toLowerCase();
+		sentence = sc.nextLine().toLowerCase();
 	}
 	
 	public void count() {
@@ -34,9 +35,7 @@ public class WordLengthAvgCalc {
 				word += letter;
 			}
 			else if (letter == ' ') {
-				totalLetters += word.length();
 				totalWords++;
-				word = "";
 			}
 		}
 		if (!word.isBlank()) {
@@ -59,10 +58,28 @@ public class WordLengthAvgCalc {
 	}
 	
 	public boolean runAgain() {
-		return false;
+		System.out.println("\nWould You Like To Run The Prompt Again? \n1) Yes \n2) No");
+		while (true) {
+			userInput = sc.nextLine();
+			if (userInput.equals("1")) {
+				System.out.println("Enter Another Sentence To Find The Average Of: ");
+				reset();
+				return true;
+			}
+			else if (userInput.equals("2")) {
+				System.out.println("Goodbye!");
+				return false;
+			}
+			else {
+				System.out.println("Try Again: \nEnter A Valid Option...");
+			}
+		}
 	}
 	
 	public void reset() {
-		
+		totalLetters = 0;
+		totalWords = 0;
+		average = 0;
+		word = "";
 	}
 }
