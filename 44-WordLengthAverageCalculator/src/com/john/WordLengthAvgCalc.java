@@ -46,6 +46,7 @@ public class WordLengthAvgCalc {
 	}
 	
 	public void calculate() {
+		average = totalLetters / totalWords;
 	}
 	
 	public void printAnswer() {
